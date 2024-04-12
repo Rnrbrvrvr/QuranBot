@@ -4,6 +4,7 @@ from os import getenv
 
 from dotenv import load_dotenv
 from pyrogram import filters
+from pymongo import MongoClient  # استيراد MongoClient
 
 load_dotenv()
 
@@ -119,7 +120,6 @@ SONG_DOWNLOAD_DURATION_LIMIT = int(
     time_to_seconds(f"{SONG_DOWNLOAD_DURATION}:00")
 )
 
-
 if UPSTREAM_REPO:
     if not re.match("(?:http|https)://", UPSTREAM_REPO):
         print(
@@ -173,3 +173,4 @@ if STRING4:
     session4 = STRING4
 if STRING5:
     session5 = STRING5
+= STRING5
