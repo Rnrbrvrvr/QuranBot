@@ -136,3 +136,40 @@ if START_IMG_URL:
     if START_IMG_URL != "assets/Ping.jpeg":
         if not re.match("(?:http|https)://", START_IMG_URL):
             START_IMG_URL = "https://te.legra.ph/file/56d1760224589ee370186.jpg"
+            
+# إضافة عملية إغلاق جلسات العميل في النهاية
+if MONGO_DB_URI:
+    MONGO_CLIENT = MongoClient(MONGO_DB_URI)
+    MUSIC = MONGO_CLIENT[getenv("DB_NAME", "PandaXUserbot")].quran
+else:
+    MUSIC = None
+
+if MONGO_DB_URI:
+    MONGO_CLIENT = MongoClient(MONGO_DB_URI)
+    LOGS = MONGO_CLIENT[getenv("DB_NAME", "PandaXUserbot")].logs
+else:
+    LOGS = None
+
+def time_to_seconds(time):
+    stringt = str(time)
+    return sum(
+        int(x) * 60**i
+        for i, x in enumerate(reversed(stringt.split(":")))
+    )
+
+
+DURATION_LIMIT = int(time_to_seconds(f"{DURATION_LIMIT_MIN}:00"))
+SONG_DOWNLOAD_DURATION_LIMIT = int(
+    time_to_seconds(f"{SONG_DOWNLOAD_DURATION}:00")
+)
+
+if STRING1:
+    session1 = STRING1
+if STRING2:
+    session2 = STRING2
+if STRING3:
+    session3 = STRING3
+if STRING4:
+    session4 = STRING4
+if STRING5:
+    session5 = STRING5
